@@ -1,0 +1,35 @@
+{
+  "name": "get-git-contributors",
+  "version": "1.0.0",
+  "description": "hw second lecture",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "server": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eidicon/get-git-contributors.git"
+  },
+  "keywords": [
+    "nodejs",
+    "async/await",
+    "promise",
+    "es6"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eidicon/get-git-contributors/issues"
+  },
+  "homepage": "https://github.com/eidicon/get-git-contributors#readme",
+  "devDependencies": {
+    "standard": "^12.0.1"
+  },
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "node-fetch": "^2.2.0",
+    "pug": "^2.0.3"
+  }
+}
