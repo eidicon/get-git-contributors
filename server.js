@@ -1,6 +1,6 @@
 const express = require('express')
 require('dotenv').config()
-const index = require ('./routes/index')
+const index = require('./routes/index')
 
 let port = process.env.HOST_PORT || 4000
 let host = process.env.HOST_NAME || 'localhost'

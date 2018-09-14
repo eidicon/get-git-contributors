@@ -1,4 +1,7 @@
 const fetch = require('node-fetch')
+
+const MAX_REPOS = '3'
+
 const getContributorsA = async (orgainzation) => {
   let repos = await fetch(`https://api.github.com/orgs/${orgainzation}/repos`).catch(err => console.error(err))
   let status = await repos.status
@@ -16,7 +19,7 @@ const getContributorsA = async (orgainzation) => {
 }
 
 const contributorsPerRepo = async (repoList, orgainzation) => {
-  let repos = await repoList.slice(0, 3)
+  let repos = await repoList.slice(0, MAX_REPOS)
   let [firstP, secondP, thirdP] = await repos.map(async (item) => ({ [item.name]: await fetchContributors(item.name, orgainzation) }))
   let object = Promise.all([firstP, secondP, thirdP])
   return object

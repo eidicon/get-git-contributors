@@ -11,14 +11,12 @@ router.get('/', async (req, res) => {
 
 router.get('/as-promise', (req, res) => {
   let nodejsRepoContributors = getContributorsB(organizationName)
-    .then(resp => resp)
-    .catch(err => console.log(err))
   res.setHeader('Content-Type', 'application/json')
   res.send(JSON.stringify(nodejsRepoContributors, null, 3))
 })
 
 router.get('/as-async-await', async (req, res) => {
-  let nodejsRepoContributors = await getContributorsA(organizationName).catch(err => console.log(err))
+  let nodejsRepoContributors = await getContributorsA(organizationName)
   res.setHeader('Content-Type', 'application/json')
   res.send(JSON.stringify(nodejsRepoContributors, null, 3))
 })

@@ -1,4 +1,6 @@
 const fetch = require('node-fetch')
+const MAX_REPOS = '3'
+
 const getContributorsB = (orgainzation) => {
   return new Promise((resolve, reject) => {
     fetch(`https://api.github.com/orgs/${orgainzation}/repos`)
@@ -21,8 +23,7 @@ const getContributorsB = (orgainzation) => {
 
 const selectRepos = (data, orgainzation) => {
   return new Promise((resolve, reject) => {
-    data
-      .filter((item, key) => { if (key < 3) { return item } })
+    data.slice(0, MAX_REPOS)
       .reduce((promise, current) => {
         return promise.then(result => {
           fetchContributors(current.name, orgainzation).then(arr => Object.assign(promise, { [current.name]: arr }))
